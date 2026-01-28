@@ -14,11 +14,18 @@ var b float64
 var c string
 var d bool
 
+type chocolateStarFish string 
+
+var flavoredWater chocolateStarFish
+
 func main() {
 	// := | Declara ao menos uma nova variável e atribui valor | Se usa apenas na primeira vez criando a variável
 	// =  | Apenas reatribui valor a variável existente        | Se usa apenas caso a variável já foi declarada
 
 	globalVariable = "Essa variável tem escopo de pacote"
+
+	flavoredWater = "bring it on"
+	fmt.Printf("%v, %T\n", flavoredWater, flavoredWater)
 
 	x := 10 // Declara int x = 10
 	y := 20 // Declara int y = 20
