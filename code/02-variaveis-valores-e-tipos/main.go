@@ -14,7 +14,7 @@ var b float64
 var c string
 var d bool
 
-type chocolateStarFish string 
+type chocolateStarFish string
 
 var flavoredWater chocolateStarFish
 
@@ -23,9 +23,6 @@ func main() {
 	// =  | Apenas reatribui valor a variável existente        | Se usa apenas caso a variável já foi declarada
 
 	globalVariable = "Essa variável tem escopo de pacote"
-
-	flavoredWater = "bring it on"
-	fmt.Printf("%v, %T\n", flavoredWater, flavoredWater)
 
 	x := 10 // Declara int x = 10
 	y := 20 // Declara int y = 20
@@ -60,7 +57,17 @@ func main() {
 	fmt.Printf("%v, %T\n", d, d)
 
 	//String literals
-	literal:= "Oi \ncomo vai?\nespero que \"que\" tudo bem!"
+	literal := "Oi \ncomo vai?\nespero que \"que\" tudo bem!"
 	result := fmt.Sprint(literal)
 	fmt.Println(result)
+
+	// Conversão de tipos ref/spec#conversions
+	flavoredWater = "bring it on"
+	fmt.Printf("%v, %T\n", flavoredWater, flavoredWater)
+	
+	formatedWater := ""
+	// formatedWater := flavoredWater -> Mesmo os valores sendo iguais, e os tipos "base" também,
+	// os tipos são diferentes, o que implica em um erro de compilação
+	formatedWater = string(flavoredWater)
+	fmt.Printf("%v, %T\n", formatedWater, formatedWater)
 }
