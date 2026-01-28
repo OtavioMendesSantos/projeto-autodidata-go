@@ -2,12 +2,17 @@ package main
 
 import "fmt"
 
-var globalVariable string;
-//= "Essa variável tem escopo de pacote"
+var globalVariable string
+
 // Variável declarada em um code block é undefined em outro
 // Para variáveis com uma abrangência maior, package level scope, utilizamos var
 // Funciona em qualquer lugar
 // Caso seja inicializado com package scope e sem valor, a atribuição somente será feita no codeblock
+
+var a int
+var b float64
+var c string
+var d bool
 
 func main() {
 	// := | Declara ao menos uma nova variável e atribui valor | Se usa apenas na primeira vez criando a variável
@@ -27,7 +32,23 @@ func main() {
 	fmt.Printf("%d %v, %T\n", z, z, z)
 	// %d = formato de int, %s = formata string, %v = valor padrão, \n = quebra linha
 
-	fmt.Println("x > y:",xIsGreaterThanY)
+	fmt.Println("x > y:", xIsGreaterThanY)
+
+	// Go prioriza segurança de tipo acima de "comportamento esperado":
+	// int / int -> int (sempre inteiro)
+	// float / float -> float (sempre decimal)
+	// Filosofia Go: "Se você quer float, diga explicitamente."
+	part := 12.0
+	total := 185.0
+	percentagem := (part / total) * 100
+	fmt.Printf("%.2f%% de %.0f é %.0f\n", percentagem, total, part)
 
 	otherFunc()
+
+	fmt.Println("Valores 0:")
+	// Valores 0 aparecem quando uma variável é declarada e não é inicializada
+	fmt.Printf("%v, %T\n", a, a)
+	fmt.Printf("%v, %T\n", b, b)
+	fmt.Printf("%v, %T\n", c, c)
+	fmt.Printf("%v, %T\n", d, d)
 }
