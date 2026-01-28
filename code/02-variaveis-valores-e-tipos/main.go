@@ -51,4 +51,9 @@ func main() {
 	fmt.Printf("%v, %T\n", b, b)
 	fmt.Printf("%v, %T\n", c, c)
 	fmt.Printf("%v, %T\n", d, d)
+
+	//String literals
+	literal:= "Oi \ncomo vai?\nespero que \"que\" tudo bem!"
+	result := fmt.Sprint(literal)
+	fmt.Println(result)
 }
