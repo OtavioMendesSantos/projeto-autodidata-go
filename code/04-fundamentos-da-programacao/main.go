@@ -24,7 +24,7 @@ func main() {
 	// valuesBool()
 	// valuesByte()
 	valuesInt()
-	myComputer()
+	// myComputer()
 }
 
 func valuesBool() {
@@ -51,9 +51,20 @@ func valuesByte() {
 }
 
 func valuesInt() {
-	x := 10
-	y := 10.0
+	var x uint16
+	// x = 65536 -> cannot use 65536 (untyped int constant) as uint16 value in assignment (overflows)
+	// Go detecta overflow na COMPILAÇÃO para atribuições literais
+
+	x = 65535
 	fmt.Printf("%v, %T\n", x, x)
+	
+	x++ // Incrementa: 65535 + 1 = 65536 → OVERFLOW! Volta para 0 (wrap around)
+	fmt.Printf("%v, %T\n", x, x)
+	
+	x++ // Incrementa novamente: 0 + 1 = 1
+	fmt.Printf("%v, %T\n", x, x)
+	
+	y := 10.0
 	fmt.Printf("%v, %T\n", y, y)
 }
 
