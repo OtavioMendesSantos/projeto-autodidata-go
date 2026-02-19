@@ -30,7 +30,8 @@ func main() {
 	// valuesString()
 	// numericSystems()
 	// constantValues()
-	iotaValues()
+	// iotaValues()
+	bytesDeslocation()
 }
 
 func valuesBool() {
@@ -217,4 +218,39 @@ func iotaValues() {
 	// - Você precisa de valores sequenciais
 	// - Está criando algo semelhante a um enum
 	// - Quer evitar manter números manualmente
+}
+
+func bytesDeslocation() {
+	x := 6
+	y := x << 1
+	const (
+		teste1 = 6 << iota
+		teste2 
+		teste3 
+		teste4 
+		teste5 
+	)
+	fmt.Printf("Valor binário: %08b\n", x)
+	fmt.Printf("Valor binário: %08b\n", y)
+	fmt.Println(x, y)
+
+	fmt.Printf("%08b\n",teste1)
+	fmt.Printf("%08b\n",teste2)
+	fmt.Printf("%08b\n",teste3)
+	fmt.Printf("%08b\n",teste4)
+	fmt.Printf("%08b\n",teste5)
+
+	const (
+		_ = iota
+		KB = iota << (10 * iota)
+		MB
+		GB
+		TB
+	)
+
+	fmt.Println("BINARY\t\t\t\t\t\tDECIMAL")
+	fmt.Printf("%b\t\t\t\t\t%d\n", KB, KB)
+	fmt.Printf("%b\t\t\t\t%d\n", MB, MB)
+	fmt.Printf("%b\t\t%d\n", GB, GB)
+	fmt.Printf("%b\t%d\n", TB, TB)
 }
