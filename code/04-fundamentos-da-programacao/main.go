@@ -29,7 +29,8 @@ func main() {
 	// myComputer()
 	// valuesString()
 	// numericSystems()
-	constantValues()
+	// constantValues()
+	iotaValues()
 }
 
 func valuesBool() {
@@ -202,4 +203,18 @@ func constantValues() {
 		c string  = "30"
 	)
 	fmt.Println(a, b, c)
+
+}
+
+func iotaValues() {
+	const (
+		aa = iota // 0
+		bb        // 1
+		cc        // 2
+	)
+	fmt.Println(aa, bb, cc)
+	// Quando usar iota:
+	// - Você precisa de valores sequenciais
+	// - Está criando algo semelhante a um enum
+	// - Quer evitar manter números manualmente
 }
