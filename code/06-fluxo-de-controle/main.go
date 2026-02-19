@@ -6,6 +6,11 @@ import (
 )
 
 func main() {
+	// loops()
+	desafio()
+}
+
+func loops() {
 	// for x := 0; x < 10; x++ {fmt.Println(x)}; -> for loop can be modernized using range over int
 	// Go não tem while
 
@@ -45,5 +50,24 @@ func main() {
 			continue // pula a iteração atual
 		}
 		fmt.Println(i)
+	}
+}
+
+// Loops: Desafio surpresa utilizando ascii!
+// Format printing:
+// - Decimal %d
+// - Hexadecimal %#x
+// - Unicode %#U
+// - Tab \t
+// - Linha nova \n
+// - Faça um loop dos números 33 a 122, e utilize format printing para demonstrá-los como texto/string.
+func desafio() {
+	for i := 33; i <= 122; i++ {
+		fmt.Printf("%v %U - %v\n", i, i, string(i))
+		// o Go interpreta esse número como um code point Unicode e converte para o caractere correspondente.
+		// O que está acontecendo tecnicamente
+		// - Um int pode representar um rune
+		// - rune é um alias para int32
+		// - rune representa um Unicode code point
 	}
 }
