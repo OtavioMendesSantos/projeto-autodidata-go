@@ -8,7 +8,8 @@ import (
 func main() {
 	// loops()
 	// desafio()
-	condicional()
+	// condicional()
+	generico()
 }
 
 func loops() {
@@ -114,5 +115,22 @@ func condicional() {
 		fmt.Println("Equipe Verde")
 	default:
 		fmt.Println("Equipe desconhecida")
+	}
+}
+
+var x interface{}
+
+func generico() {
+	x = -176
+
+	switch x.(type) {
+	case int:
+		fmt.Println("x is an int")
+	case string:
+		fmt.Println("x is a string")
+	case bool:
+		fmt.Println("x is a bool")
+	default:
+		fmt.Println("x is of a different type")
 	}
 }
