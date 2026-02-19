@@ -39,4 +39,11 @@ func main() {
 		}
 	}
 	fmt.Printf("===== Após %v tentativas, o for acabou =====\n", y)
+
+	for i := 0; i < 5; i++ {
+		if i == 2 {
+			continue // pula a iteração atual
+		}
+		fmt.Println(i)
+	}
 }
