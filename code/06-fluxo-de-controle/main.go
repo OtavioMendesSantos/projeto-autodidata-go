@@ -7,7 +7,8 @@ import (
 
 func main() {
 	// loops()
-	desafio()
+	// desafio()
+	condicional()
 }
 
 func loops() {
@@ -70,4 +71,15 @@ func desafio() {
 		// - rune é um alias para int32
 		// - rune representa um Unicode code point
 	}
+}
+
+func condicional() {
+	if x := 10; x > 5 {
+		fmt.Println("Maior que 5")
+	} else {
+		fmt.Println("Menor que 5")
+	}
+	// if err := doSomething(); err != nil {
+	// 	fmt.Println(err)
+	// }
 }
