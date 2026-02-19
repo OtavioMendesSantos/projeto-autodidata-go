@@ -28,7 +28,8 @@ func main() {
 	// valuesNumeric()
 	// myComputer()
 	// valuesString()
-	numericSystems()
+	// numericSystems()
+	constantValues()
 }
 
 func valuesBool() {
@@ -131,16 +132,16 @@ Que saco.`
 	}
 
 	fmt.Println("----------------------------------")
-	
+
 	// LOOP 2: Iteração por ÍNDICE (acessa string como slice de bytes)
 	for i := 0; i < len(hello); i++ {
 		fmt.Printf("%v- %T - %#U - %#x \n", hello[i], hello[i], hello[i], hello[i])
 	}
 }
 
-func valuesNumeric (){
+func valuesNumeric() {
 	// int8, int16, int32, int64 -> números inteiros com sinal
-	// uint8, uint16, uint32, uint64 -> numeros inteiros positivos 
+	// uint8, uint16, uint32, uint64 -> numeros inteiros positivos
 	// float32, float64
 	// byte, rune = uint8, int32
 
@@ -157,25 +158,48 @@ func valuesNumeric (){
 	fmt.Println("byte:", math.MaxUint8)
 	fmt.Println("rune:", math.MaxInt32)
 
-	a:= "a"
-	b:= "é"
-	c:= "是"
+	a := "a"
+	b := "é"
+	c := "是"
 	fmt.Printf("%v\t%v\t%v\n", a, b, c)
 	fmt.Printf("%v\t%v\t%v\n", []byte(a), []byte(b), []byte(c))
 
 	var numA int32 = 42
 	var numB int64 = 42
 	// fmt.Println(numA + numB) -> TIPOS diferentes, não podem ser somados
-	fmt.Println("A soma de ", numA, " e ", numB, " é ", int64(numA) + numB)
+	fmt.Println("A soma de ", numA, " e ", numB, " é ", int64(numA)+numB)
 }
 
-func numericSystems (){
+func numericSystems() {
 	// decimais: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 	// binários: 0, 1
 	// hexadecimais: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 
-	x:= 501 
-	fmt.Printf("Em decimal: %d\nEm binário: %b\nEm hexadecimal: %#x\n",x,x,x) 
+	x := 501
+	fmt.Printf("Em decimal: %d\nEm binário: %b\nEm hexadecimal: %#x\n", x, x, x)
 	// format verbs - https://pkg.go.dev/fmt
 	// # é uma flag - add leading 0b for binary (%#b), 0 for octal (%#o), 0x or 0X for hex (%#x or %#X);
+}
+
+func constantValues() {
+	const x = 10
+	// O tipo de uma constante fica "untyped" até que seja utilizada
+	// Ou seja, ela só vira um tipo concreto quando o contexto exige
+
+	y := 10
+	z := 12.5
+
+	fmt.Printf("%v, %T\n", x, x)
+	fmt.Printf("%v, %T\n", y, y)
+	// fmt.Println(z+y) -> assignment mismatch: 12.5 (untyped float constant) to int
+	fmt.Println(y + x)
+	fmt.Println(z + x)
+	// Se uma constante não tipada participa de uma expressão, ela é convertida para o tipo do outro operando, se possível.
+
+	const (
+		a int     = 10
+		b float32 = 20
+		c string  = "30"
+	)
+	fmt.Println(a, b, c)
 }
