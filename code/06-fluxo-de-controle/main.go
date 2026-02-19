@@ -9,7 +9,8 @@ func main() {
 	// loops()
 	// desafio()
 	// condicional()
-	generico()
+	// generico()
+	operadoresCondicionais()
 }
 
 func loops() {
@@ -132,5 +133,13 @@ func generico() {
 		fmt.Println("x is a bool")
 	default:
 		fmt.Println("x is of a different type")
+	}
+}
+
+func operadoresCondicionais() {
+	x := 10
+	y := 5
+	if (x == y || x != y) && x >= y {
+		fmt.Println("x e y são iguais ou diferentes e x é maior ou igual que y")
 	}
 }
