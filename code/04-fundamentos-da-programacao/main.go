@@ -25,9 +25,10 @@ func main() {
 	// valuesBool()
 	// valuesByte()
 	// valuesInt()
-	valuesNumeric()
+	// valuesNumeric()
 	// myComputer()
 	// valuesString()
+	numericSystems()
 }
 
 func valuesBool() {
@@ -166,4 +167,15 @@ func valuesNumeric (){
 	var numB int64 = 42
 	// fmt.Println(numA + numB) -> TIPOS diferentes, não podem ser somados
 	fmt.Println("A soma de ", numA, " e ", numB, " é ", int64(numA) + numB)
+}
+
+func numericSystems (){
+	// decimais: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+	// binários: 0, 1
+	// hexadecimais: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+
+	x:= 501 
+	fmt.Printf("Em decimal: %d\nEm binário: %b\nEm hexadecimal: %#x\n",x,x,x) 
+	// format verbs - https://pkg.go.dev/fmt
+	// # é uma flag - add leading 0b for binary (%#b), 0 for octal (%#o), 0x or 0X for hex (%#x or %#X);
 }
