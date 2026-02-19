@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"runtime"
 )
 
@@ -24,8 +25,9 @@ func main() {
 	// valuesBool()
 	// valuesByte()
 	// valuesInt()
+	valuesNumeric()
 	// myComputer()
-	valuesString()
+	// valuesString()
 }
 
 func valuesBool() {
@@ -133,4 +135,35 @@ Que saco.`
 	for i := 0; i < len(hello); i++ {
 		fmt.Printf("%v- %T - %#U - %#x \n", hello[i], hello[i], hello[i], hello[i])
 	}
+}
+
+func valuesNumeric (){
+	// int8, int16, int32, int64 -> números inteiros com sinal
+	// uint8, uint16, uint32, uint64 -> numeros inteiros positivos 
+	// float32, float64
+	// byte, rune = uint8, int32
+
+	fmt.Println("int8:", math.MinInt8)
+	fmt.Println("int16:", math.MinInt16)
+	fmt.Println("int32:", math.MinInt32)
+	fmt.Println("int64:", math.MinInt64)
+	fmt.Println("uint8:", math.MaxUint8)
+	fmt.Println("uint16:", math.MaxUint16)
+	fmt.Println("uint32:", math.MaxUint32)
+	fmt.Println("uint64:", uint64(math.MaxUint64))
+	fmt.Println("float32:", math.MaxFloat32)
+	fmt.Println("float64:", math.MaxFloat64)
+	fmt.Println("byte:", math.MaxUint8)
+	fmt.Println("rune:", math.MaxInt32)
+
+	a:= "a"
+	b:= "é"
+	c:= "是"
+	fmt.Printf("%v\t%v\t%v\n", a, b, c)
+	fmt.Printf("%v\t%v\t%v\n", []byte(a), []byte(b), []byte(c))
+
+	var numA int32 = 42
+	var numB int64 = 42
+	// fmt.Println(numA + numB) -> TIPOS diferentes, não podem ser somados
+	fmt.Println("A soma de ", numA, " e ", numB, " é ", int64(numA) + numB)
 }
