@@ -5,7 +5,8 @@ import "fmt"
 func main() {
 	// dadosArray()
 	// dadosSlice()
-	fatiandoFatias()
+	// fatiandoFatias()
+	anexandoSlices()
 }
 
 // Arrays possuem um tamanho fixo e fazem parte do tipo
@@ -65,12 +66,19 @@ func dadosSlice() {
 	fmt.Println(s[:cap(s)])
 }
 
-func fatiandoFatias(){
-	sabores:= []string{"chocolate", "morango", "limão", "baunilha"}
+func fatiandoFatias() {
+	sabores := []string{"chocolate", "morango", "limão", "baunilha"}
 	fmt.Println(sabores[1:3])
 	fmt.Println(sabores[:2])
 	fmt.Println(sabores[2:])
 	fmt.Println(sabores[:])
 	sabores = append(sabores, "abacaxi")
 	fmt.Println(append(sabores[:1], sabores[3:]...))
+}
+
+func anexandoSlices() {
+	// append -> anexa itens a uma slice - faz parte do package built-in
+	sabores := []string{"chocolate", "morango", "limão", "baunilha"}
+	sabores = append(sabores, "abacaxi")
+	fmt.Println(sabores)
 }
