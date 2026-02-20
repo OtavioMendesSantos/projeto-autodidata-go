@@ -29,17 +29,37 @@ func dadosArray() {
 	}
 }
 
-// Slice é um array dinâmico -> coleção de tipos
+// Slice é uma estrutura que referencia um array interno.
+// Ele possui tamanho variável (len) e capacidade (cap).
 func dadosSlice() {
+	// Cria um slice com 4 elementos.
+	// O array subjacente tem tamanho 4 neste caso.
 	slice := []int{0, 1, 2, 3}
-	// fmt.Println(append(slice, 4, 5, 6))-> [0 1 2 3 4 5 6]
-	// fmt.Println(slice) -> [0 1 2 3]
+
+	// append adiciona elementos após o último índice válido (len-1).
+	// Ele pode reutilizar o array interno ou criar um novo,
+	// dependendo da capacidade disponível.
+	// Por isso é necessário atribuir o retorno.
 	slice = append(slice, 4, 5, 6)
-	
-	// Mesmo que a capacidade seja maior, você não pode acessar além do len.
-	// slice[11] = 11 -> panic: runtime error: index out of range [0:11] with length 4
+
+	// Mesmo que a capacidade (cap) seja maior,
+	// não é permitido acessar índices >= len(slice).
+	// Exemplo: slice[10] = 10 -> panic: index out of range
 
 	for i, v := range slice {
 		fmt.Printf("%v - %v\n", i, v)
 	}
+
+	// make cria um slice com len=3 e cap=6.
+	// O array interno tem 6 posições (todas inicializadas com zero).
+	s := make([]int, 3, 6) // len=3 cap=6
+
+	fmt.Printf("%v %T\n", s, s)
+
+	// len -> quantidade de elementos acessíveis
+	// cap -> tamanho total do array interno
+
+	// Ao expandir até a capacidade,
+	// passamos a enxergar todas as posições do array interno.
+	fmt.Println(s[:cap(s)])
 }
