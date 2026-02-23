@@ -7,7 +7,8 @@ func main() {
 	// dadosSlice()
 	// fatiandoFatias()
 	// anexandoSlices()
-	makeSlice()
+	// makeSlice()
+	slicesMultiDimensionais()
 }
 
 // Arrays possuem um tamanho fixo e fazem parte do tipo
@@ -84,9 +85,26 @@ func anexandoSlices() {
 	fmt.Println(sabores)
 }
 
-func makeSlice(){
+func makeSlice() {
 	// make ([]T, len, cap) -> cria um slice com len e cap
 	s := make([]int, 3, 6)
 	fmt.Printf("%v %T\n", s, s)
 	fmt.Printf("len: %v, cap: %v\n", len(s), cap(s))
+}
+
+func slicesMultiDimensionais() {
+	pessoas := [][]string{
+		{"Joana", "18", "1111-1111"},
+		{"Mario", "20", "2222-2222"},
+		{"Maria", "19", "3333-3333"},
+		{"Luiz", "21", "4444-4444"},
+		{"José", "22", "5555-5555"},
+	}
+	fmt.Printf("Nome \t | \tIdade \t | \tTelefone \t | \n")
+	for _, v := range pessoas {
+		for i := range v {
+			fmt.Printf("%v \t | \t", v[i])
+		}
+		fmt.Println()
+	}
 }
