@@ -6,7 +6,8 @@ func main() {
 	// dadosArray()
 	// dadosSlice()
 	// fatiandoFatias()
-	anexandoSlices()
+	// anexandoSlices()
+	makeSlice()
 }
 
 // Arrays possuem um tamanho fixo e fazem parte do tipo
@@ -81,4 +82,11 @@ func anexandoSlices() {
 	sabores := []string{"chocolate", "morango", "limão", "baunilha"}
 	sabores = append(sabores, "abacaxi")
 	fmt.Println(sabores)
+}
+
+func makeSlice(){
+	// make ([]T, len, cap) -> cria um slice com len e cap
+	s := make([]int, 3, 6)
+	fmt.Printf("%v %T\n", s, s)
+	fmt.Printf("len: %v, cap: %v\n", len(s), cap(s))
 }
